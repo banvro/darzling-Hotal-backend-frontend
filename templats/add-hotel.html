@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+
+{% block title%} Admin Dashboard{% endblock title %}
+{% block body %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdz4xrgAodzerpj1Az80zVb3u-YvjG6zM&libraries=places"></script>
+
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <section>
+                            <h1 style="font-size: 1.5rem;
+                            padding: 20px;
+                            text-align: center;"><strong>Add Hotel</strong></h1>
+                          </section>
+                        <!-- PAGE-HEADER END -->
+
+                        <!-- ROW-1 OPEN -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title">Add New Hotel</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="POST" action= "add_hotel" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Hotel name :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="hotalname" id="hotalname" required class="form-control" placeholder="Hotal Name">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label"> Add Location :</label>
+                                                <div class="col-md-9">
+                                                    <input type="location" name="loc" id="loc" class="form-control" placeholder="Location/location link..">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="row">
+                                                    <label class="col-md-3 form-label">Location coordinate : </label>
+                                                    <div class="col-lg-4 col-md-12">
+                                                      <div class="form-group"> 
+                                                        <label for="Latitude">Latitude</label>
+                                                        <input type="text" class="form-control" id="lat" name="lat" placeholder="Latitude">
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-12">                
+                                                      <div class="form-group">
+                                                        <label for="Longitude">Longitude</label>
+                                                        <input type="text" class="form-control" id="long" name="long" placeholder="Longitude">
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                           
+                                        <div class="row mb-4">
+                                            <label class="col-md-3 form-label">Price :</label>
+                                            <div class="col-md-9"> 
+                                                <input type="number" name="newprice" id="newprice" required class="form-control"  placeholder="for 1 night 1 room...">
+                                            </div>
+                                        </div>
+                                        
+                                       
+                                       
+                                        
+                                        <div class="row mb-4">
+                                            <label class="col-md-3 form-label">Hotel Description :</label>
+                                            <div class="col-md-9">
+                                                <textarea  type="textarea" name="dec" id="dec" required class="form-control"  placeholder="About Hotel..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!--Row-->
+                                        <div class="row">
+                                            <label class="col-md-3 form-label mb-4"> Upload Images :</label>
+                                            
+                                            <div class="col-md-3">
+                                                <input type="file"  id="img1" name="img1" required>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="file"  id="img2" name="img2">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="file"  id="img3" name="img3">
+                                            </div>
+                                            <div class="col-md-3" style="margin-left: 25%;">
+                                                <input type="file"  id="img4" name="img4">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="file"  id="img5" name="img5">
+                                            </div>
+                                        </div>
+                                        <!--End Row-->
+                                    </div>
+                                    <button class="btn btn-primary" type="submit" value="Send" style="cursor: pointer;
+                                    width: 19%;
+                                    align-items: center;
+                                    padding: 9px;
+                                    margin-left: 45%;
+                                    margin-bottom: 22px;
+                                    margin-top: 12px;">Publish Hotel</button>
+
+                                </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /ROW-1 CLOSED -->
+                    </div>
+                    <!-- CONTAINER CLOSED -->
+                </div>
+            </div>
+            <!--app-content closed-->
+        </div>
+
+        
+
+   <script>
+    var searchInput = 'search_input';
+
+$(document).ready(function () {
+    var autocomplete;
+    autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+        types: ['geocode'],
+    });
+	
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        var near_place = autocomplete.getPlace();
+        document.getElementById('loc_lat').value = near_place.geometry.location.lat();
+        document.getElementById('loc_long').value = near_place.geometry.location.lng();
+		
+        document.getElementById('latitude_view').innerHTML = near_place.geometry.location.lat();
+        document.getElementById('longitude_view').innerHTML = near_place.geometry.location.lng();
+    });
+});
+
+// $(document).on('change', '#'+searchInput, function () {
+//     document.getElementById('latitude_input').value = '';
+//     document.getElementById('longitude_input').value = '';
+	
+//     document.getElementById('latitude_view').innerHTML = '';
+//     document.getElementById('longitude_view').innerHTML = '';
+// });
+   </script>
+
+{% endblock body %}

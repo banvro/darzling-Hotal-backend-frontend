@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+
+
+{% block title%} Admin Dashboard{% endblock title %}
+
+
+{% block body %}
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <div class="page-header">
+                            <h1 class="page-title">Hotel listing</h1>
+                           
+                        </div>
+                        <!-- PAGE-HEADER END -->
+
+                        <!-- ROW-1 OPEN -->
+                        <div class="row row-cards">
+                            <div class="col-xl-3 col-lg-4">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <!--Popular Filters-->
+                                                <div class="card-title">Popular Filters</div>
+                                            </div>
+                                            <div class="card-body">
+                                                <ul class="list-group">
+                                                    <a href="/hotel_list_filter/?resently_added=newfirst"><li class="list-group-item border-0 p-0" value = "resently_added" name="resently_added", id="resently_added"> <i class="fe fe-chevron-right"></i> Recently added <span class="product-label">{% if tottal_hotal%}{{tottal_hotal}}{% endif %}</span> </li></a>
+                                                    <a href="/hotel_list_filter/?resently_added=a_to_z"><li class="list-group-item border-0 p-0" value = "atoz" name="atoz", id="atoz"> <i class="fe fe-chevron-right"></i> Sort A--Z </a><span class="product-label">{% if tottal_hotal%}{{tottal_hotal}}{% endif %}</span> </li></a>
+                                                    <a href="/hotel_list_filter/?resently_added=z_to_a"><li class="list-group-item border-0 p-0" value = "z_to_a" name="z_to_a", id="z_to_a"> <i class="fe fe-chevron-right"></i> sort Z--A </a><span class="product-label">{% if tottal_hotal%}{{tottal_hotal}}{% endif %}</span> </li></a>
+                                                    <a href="/hotel_list_filter/?resently_added=oldfirst"><li class="list-group-item border-0 p-0" value = "resently_added" name="resently_added", id="resently_added"> <i class="fe fe-chevron-right"></i> Oldest </a><span class="product-label">{% if tottal_hotal%}{{tottal_hotal}}{% endif %}</span> </li></a>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                      
+                                        <!--Filters Sort Star ratings-->
+                                        <div class="card">
+                                            <div class="card-body">
+                                                
+                                                <div class="form-group">
+                                                    <label class="form-label">Filters</label>
+                                                    <li class="nav-item dropdown" style="
+                                                background-color: #f6f7fc;
+                                                padding-right: 61%;
+                                                border-radius: 7px;
+                                                padding-top: 7px;
+                                                padding-bottom: 6px;
+                                                border: 1px solid #e9edf4 !important;">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                                        --Select--
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                      <a class="dropdown-item" href="/hotel_list_filter/?resently_added=newfirst">Recently added</a>
+                                                      <a class="dropdown-item" href="/hotel_list_filter/?resently_added=price_low_to_hight">Price Low-to-high</a>
+                                                      <a class="dropdown-item" href="/hotel_list_filter/?resently_added=price_high_to_low">Price High-to-low</a>
+                                                      
+                                                    </div>
+                                                  </li>
+
+                                                </div>
+                                                 
+                                                
+                                                <div class="form-group">
+                                                    <label class="form-label">Sort</label>
+                                                    <li class="nav-item dropdown" style="
+                                                background-color: #f6f7fc;
+                                                padding-right: 61%;
+                                                border-radius: 7px;
+                                                padding-top: 7px;
+                                                padding-bottom: 6px;
+                                                border: 1px solid #e9edf4 !important;">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                                        --Select--
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                      <a class="dropdown-item" href="/hotel_list_filter/?resently_added=a_to_z">sort A--Z</a>
+                                                      <a class="dropdown-item" href="/hotel_list_filter/?resently_added=z_to_a">sort Z--A</a>
+                                                      
+                                                    </div>
+                                                  </li>
+                                                    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="form-label">Star ratings</label>
+                                                    <li class="nav-item dropdown" style="
+                                                background-color: #f6f7fc;
+                                                padding-right: 61%;
+                                                border-radius: 7px;
+                                                padding-top: 7px;
+                                                padding-bottom: 6px;
+                                                border: 1px solid #e9edf4 !important;">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                                                        --Select--
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <a class="dropdown-item" href="/hotel_list_filter/?resently_added=5-star_hotal">5 star</a>
+                                                        <a class="dropdown-item" href="/hotel_list_filter/?resently_added=4-star_hotal">4 star</a>
+                                                        <a class="dropdown-item" href="/hotel_list_filter/?resently_added=3-star_hotal">3 star</a>
+                                                        <a class="dropdown-item" href="/hotel_list_filter/?resently_added=2-star_hotal">2 star</a>
+                                                        <a class="dropdown-item" href="/hotel_list_filter/?resently_added=1-star_hotal">1 star</a>
+                                                        <a class="dropdown-item" href="/hotel_list_filter/?resently_added=0-star_hotal">0 star</a>
+                                                 
+                                                      
+                                                    </div>
+                                                  </li>
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- COL-END -->
+                            <div class="col-xl-9 col-lg-8">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card p-0">
+                                            <div class="card-body p-4">
+                                                <div class="row">
+                                                    <div class="col-xl-5 col-lg-8 col-md-8 col-sm-8">
+                                                        <form method="get" action="/search" class="form-inline">
+                                                            <input name="query" id="query" class="form-control mr-sm-2" type="search" placeholder="Search Hotal..." aria-label="Search Hotal..">
+                                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="background-color: blue;
+                                                            position: relative;
+                                                            border-radius: 12px;">Search Hotal..</button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                                                        <ul class="nav item2-gl-menu float-end my-2">
+                                                            <li class="border-end"><a href="#tab-11" class="show active" data-bs-toggle="tab" title="List style"><i class="fa fa-th"></i></a></li>
+                                                            <li><a href="#tab-12" data-bs-toggle="tab" class="" title="Grid"><i class="fa fa-list"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-xl-3 col-lg-12">
+                                                        <a href="add_hotel" class="btn btn-primary btn-block float-end my-2"><i class="fa fa-plus-square me-2"></i>New Hotel</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab-11">
+                                        <div class="row">
+
+
+                                            {% for i in hotal%}
+
+                                            <div class="col-md-6 col-xl-4 col-sm-6">
+                                                <div class="card">
+                                                    <div class="product-grid6">
+                                                        <div class="product-image6 p-5">
+                                                            
+                                                            <a href="" class="bg-light">
+                                                                <img class="img-fluid br-7 w-100" src="/media/{{i.Hotal_images1}}" alt="img">
+                                                            </a>
+                                                            <!-- <form action="{% url 'hotal_view' i.Hotal_id %}" method="post">{% csrf_token %}
+                                                                <input type="submit" class="btn btn-primary mb-1" value="Quick View">
+                                                            </form> -->
+                                                        </div>
+                                                        <div class="card-body pt-0">
+                                                            <div class="product-content text-center">
+                                                                <h1 class="title fw-bold fs-20"><a href="">{{i.Hotal_Name}}</a></h1>
+                                                                <div class="mb-2 text-warning">
+                                                                    <i class="fa fa-star text-warning"></i>
+                                                                    <i class="fa fa-star text-warning"></i>
+                                                                    <i class="fa fa-star text-warning"></i>
+                                                                    <i class="fa fa-star-half-o text-warning"></i>
+                                                                    <i class="fa fa-star-o text-warning"></i>
+                                                                </div>
+                                                                <div class="price">₹ {{i.hotal_new_price}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            
+                                                        <div class="row">
+                                                            <div class="col-xs-6 col-md-6">
+                                                                <form action="{% url 'update_hotal' i.Hotal_id %}" method="post">{% csrf_token %}
+                                                                    <input type="submit" class="btn btn-primary mb-1" value="Edit">
+                                                                </form>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-6">
+                                                                <form action="{% url 'hotal_view' i.Hotal_id %}" method="post">{% csrf_token %}
+                                                                    <input type="submit" class="btn btn-primary mb-1" value="Quick View">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                                <!-- <a href="add_hotel" class="btn btn-primary mb-1"><i class="fe fe-edit me-2"></i>edit</a>
+                                                                <a href="" class="btn btn-outline-primary mb-1"><i class="fe fe-x me-2 wishlist-icon"></i>Delete</a> -->
+                                                                <form action="{% url 'delete_hotal' i.Hotal_id %}" method="post">{% csrf_token %}
+                                                                    <input type="submit" class="btn btn-outline-primary mb-1" value="Delete">
+                                                                </form>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            
+                                            
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination justify-content-center">
+                                             
+                                                    {% if prev %}
+                                                  <li class="page-item"><a class="page-link" href="/hotel_list/?page={{prev}}">Previous</a></li>
+                                                  {% else %}
+                                                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                                  {% endif %}
+                                                  <li class="page-item"><a class="page-link">$</a></li>
+                                                  <li class="page-item"><a class="page-link">$</a></li>
+                                                  <li class="page-item"><a class="page-link">$</a></li>
+                                             
+                                                  {% if nxt %}
+                                                  <li class="page-item"><a class="page-link" href="/hotel_list/?page={{nxt}}">Next</a></li>
+                                                  {% else %}
+                                                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                                  {% endif %}
+                                                </ul>
+                                              </nav>
+                                        </div>
+                                    </div>
+                                    <!--LIST VIEW-->
+                                    <!-- <div class="tab-pane" id="tab-12">
+                                        <div class="row">
+                                            {% for i in hotal%}
+                                            <div class="col-xl-12 col-lg-12 col-md-12">
+                                                <div class="card overflow-hidden">
+                                                    <div class="card-body">
+                                                        <div class="row g-0">
+                                                            <div class="col-xl-3 col-lg-12 col-md-12">
+                                                                <div class="product-list">
+                                                                    
+                                                                    <div class="br-be-0 br-te-0">
+                                                                        <a href="shop-description.html" class=""> </a>
+                                                                        <img src="../static/images/pngs/9.jpg" alt="img" class="cover-image br-7 w-100">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-12 col-md-12 border-end my-auto">
+                                                                <div class="card-body">
+                                                                    <div class="mb-3">
+                                                                        <a href="shop-description.html" class="">
+                                                                            <h3 class="fw-bold fs-30 mb-3">{{i.Hotal_Name}}</h3>
+                                                                            <div class="mb-2 text-warning">
+                                                                                <i class="fa fa-star fs-18 text-warning"></i>
+                                                                                <i class="fa fa-star fs-18 text-warning"></i>
+                                                                                <i class="fa fa-star fs-18 text-warning"></i>
+                                                                                <i class="fa fa-star-half-o fs-18 text-warning"></i>
+                                                                                <i class="fa fa-star-o fs-18 text-warning"></i>
+                                                                            </div>
+                                                                        </a>
+                                                                        <p class="fs-16">{{i.hotal_discreption}}</p>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-3 col-lg-12 col-md-12 my-auto">
+                                                                <div class="card-body p-0">
+                                                                    <div class="price h3 text-center mb-5 fw-bold">₹ {{i.hotal_new_price}}</div>
+                                                                    <a href="add_hotel" class="btn btn-primary btn-block"><i class="fe fe-edit me-2"></i>edit</a>
+                                                                    <a href="wishlist.html" class="btn btn-outline-primary btn-block mt-2"><i class="fe fe-x me-2 wishlist-icon"></i>Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %} -->
+
+
+                                            <!-- <nav aria-label="Page navigation example">
+                                                <ul class="pagination justify-content-center">
+                                             
+                                                    {% if prev %}
+                                                  <li class="page-item"><a class="page-link" href="hotel_list/?page={{prev}}">Previous</a></li>
+                                                  {% else %}
+                                                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                                  {% endif %}
+                                                  <li class="page-item"><a class="page-link">$</a></li>
+                                                  <li class="page-item"><a class="page-link">$</a></li>
+                                                  <li class="page-item"><a class="page-link">$</a></li>  
+                                             
+                                                  {% if nxt %}
+                                                  <li class="page-item"><a class="page-link" href="hotel_list/?page={{nxt}}">Next</a></li>
+                                                  {% else %}
+                                                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                                  {% endif %}
+                                                </ul>
+                                            </nav> 
+
+                                        </div>  
+                                    </div> -->
+                                </div>
+                                <!-- COL-END -->
+                            </div>
+                            <!-- ROW-1 CLOSED -->
+                        </div>
+                        <!-- ROW-1 END -->
+                    </div>
+                    <!-- CONTAINER CLOSED -->
+                </div>
+            </div>
+            <!--app-content closed-->
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+        <script>
+            $("select").click(function() {
+              var open = $(this).data("isopen");
+              if(open) {
+                window.location.href = $(this).val()
+              }
+              //set isopen to opposite so next time when use clicked select box
+              //it wont trigger this event
+              $(this).data("isopen", !open);
+            });
+        </script>
+        {% endblock body %}

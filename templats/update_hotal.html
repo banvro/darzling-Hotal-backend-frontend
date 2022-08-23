@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+
+{% block title%} Admin Dashboard{% endblock title %}
+
+
+{% block body %}
+
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <div class="page-header">
+                            <h1 class="page-title">Update Hotel</h1>
+                            
+                        </div>
+                        <!-- PAGE-HEADER END -->
+
+                        <!-- ROW-1 OPEN -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <section>
+                                        <h1 style="font-size: 1.5rem;
+                                        padding: 20px;
+                                        text-align: center;"><strong>Update Hotel</strong></h1>
+                                      </section>
+                                    <div class="card-body">
+                                        <form action= "/edit_hotal/{{Hotal_id.Hotal_id}}"  method='post' enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Hotel name :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="hotalname" id="hotalname" required class="form-control" placeholder="Update Hotal Name" value="{{Hotal_id.Hotal_Name}}">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Location :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="loc" id="loc" class="form-control"  value="{{Hotal_id.Hotal_Location}}">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="row">
+                                                    <label class="col-md-3 form-label">Location coordinate : </label>
+                                                    <div class="col-lg-4 col-md-12">
+                                                      <div class="form-group"> 
+                                                        <label for="fname">Latitude</label>
+                                                        <input type="text" class="form-control" id="lat" name="lat" value="{{Hotal_id.Hotal_Latitude}}">
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-12">                
+                                                      <div class="form-group">
+                                                        <label for="lname">Longitude</label>
+                                                        <input type="text" class="form-control" id="long" name="long" value="{{Hotal_id.Hotal_Longitude}}">
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        <div class="row mb-4">
+                                            <label class="col-md-3 form-label">Price :</label>
+                                            <div class="col-md-9">
+                                                <input type="number" name="newprice" id="newprice" required class="form-control"  value="{{Hotal_id.hotal_new_price}}">
+                                            </div>
+                                        </div>
+                                        
+                                       
+                                        
+                                        <div class="row mb-4">
+                                            <label class="col-md-3 form-label">Hotel Description :</label>
+                                            <div class="col-md-9">
+                                                <input  type="textarea" name="dec" id="dec" required class="form-control" value="{{ Hotal_id.hotal_discreption }}"></input>
+                                            </div>
+                                        </div>
+                                        <!--End Row-->
+
+                                        <!--Row-->
+                                        <div class="row">
+                                            <label class="col-md-3 form-label mb-4"> Upload Images :</label>
+                                            
+                                            <div class="col-md-3">
+                                                <input type="file"  id="img1" name="img1" required  value="{{Hotal_id.Hotal_images1}}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="file"  id="img2" name="img2"  value="{{Hotal_id.Hotal_images2}}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="file"  id="img3" name="img3"  value="{{Hotal_id.Hotal_images3}}">
+                                            </div>
+                                            <div class="col-md-3" style="margin-left: 25%;">
+                                                <input type="file"  id="img4" name="img4"  value="{{Hotal_id.Hotal_images4}}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="file"  id="img5" name="img5"  value="{{Hotal_id.Hotal_images5}}">
+                                            </div>
+                                        </div>
+                                        <!--End Row-->
+                                    </div>
+                                    <button class="btn btn-primary" type="submit" style="    width: 30%;
+                                    margin-left: 36%;
+                                    margin-top: 16px;
+                                    margin-bottom: 33px;">Update Hotel</button>
+
+                                </form>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /ROW-1 CLOSED -->
+                    </div>
+                    <!-- CONTAINER CLOSED -->
+                </div>
+            </div>
+            <!--app-content closed-->
+        </div>
+
+        
+
+   
+
+{% endblock body %}

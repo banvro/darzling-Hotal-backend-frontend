@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+
+{% block title%} Home {% endblock title %}
+
+
+{% block body %}
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <section style="background-color: white;">
+                            <h1 style="font-size: 1.5rem;
+                            padding: 20px;
+                            text-align: center;"><strong>Home</strong></h1>
+                          </section>
+                        <!-- PAGE-HEADER END -->
+
+
+                        <!-- ROW-1 OPEN -->
+                        
+                        <!-- ROW-1 CLOSED -->
+                    
+                <!--app-content closed-->
+                <section>
+                    <img src = "https://source.unsplash.com/random/?hotel" style="width:100%; height:100%; position: fixed; z-index: -3;">
+                </section>
+
+
+                <section style="background-color: white; margin-top: 446px; width: 110%;">
+                                            <section>
+                                                <h3 style="text-align: center;"><strong>Hotels</strong></h3>
+                                            </section>
+                                        <section>
+                                            <div class="tab-content">
+                                        <div class="tab-pane active" id="tab-11">
+                                        <div class="row">
+
+
+                                            {% for i in hotal%}
+
+                                            <div class="col-md-6 col-xl-4 col-sm-6">
+                                                <div class="card">
+                                                    <div class="product-grid6">
+                                                        <div class="product-image6 p-5">
+                                                            
+                                                            <a href="" class="bg-light">
+                                                                <img class="img-fluid br-7 w-100" src="/media/{{i.Hotal_images1}}" alt="img">
+                                                            </a>
+                                                            <!-- <form action="{% url 'hotal_view' i.Hotal_id %}" method="post">{% csrf_token %}
+                                                                <input type="submit" class="btn btn-primary mb-1" value="Quick View">
+                                                            </form> -->
+                                                        </div>
+                                                        <div class="card-body pt-0">
+                                                            <div class="product-content text-center">
+                                                                <h1 class="title fw-bold fs-20"><a href="">{{i.Hotal_Name}}</a></h1>
+                                                                <div class="mb-2 text-warning">
+                                                                    <i class="text-warning fa {% if i.hotal_ratting > 0 %}fa-star {% else %} fa-star-o {% endif %}"></i>
+                                                                    <i class="text-warning fa {% if i.hotal_ratting > 1 %}fa-star {% else %} fa-star-o {% endif %}"></i>
+                                                                    <i class="text-warning fa {% if i.hotal_ratting > 2 %}fa-star {% else %} fa-star-o {% endif %}"></i>
+                                                                    <i class="text-warning fa {% if i.hotal_ratting > 3 %}fa-star {% else %} fa-star-o {% endif %}"></i>
+                                                                    <i class="text-warning fa {% if i.hotal_ratting > 4 %}fa-star {% else %} fa-star-o {% endif %}"></i>
+                                                                </div>
+                                                                <!-- {% if i.hotal_ratting > 0 %} checked {% endif %} -->
+                                                                <div class="price">₹ {{i.hotal_new_price}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                            
+                                                        <div class="row">
+                                                            <div class="col-xs-6 col-md-6">
+                                                                <form action="{% url 'update_hotal' i.Hotal_id %}" method="post">{% csrf_token %}
+                                                                    <input type="submit" class="btn btn-primary mb-1" value="Edit">
+                                                                </form>
+                                                            </div>
+                                                            <div class="col-xs-6 col-md-6">
+                                                                <form action="{% url 'hotal_view' i.Hotal_id %}" method="post">{% csrf_token %}
+                                                                    <input type="submit" class="btn btn-primary mb-1" value="Quick View">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                                <!-- <a href="add_hotel" class="btn btn-primary mb-1"><i class="fe fe-edit me-2"></i>edit</a>
+                                                                <a href="" class="btn btn-outline-primary mb-1"><i class="fe fe-x me-2 wishlist-icon"></i>Delete</a> -->
+                                                                <form action="{% url 'delete_hotal' i.Hotal_id %}" method="post">{% csrf_token %}
+                                                                    <input type="submit" class="btn btn-outline-primary mb-1" value="Delete">
+                                                                </form>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+        </section>
+        
+        <a href="/hotel_list">
+        <button type="button" class="btn btn-success" style="margin-top: 13px;
+        margin-bottom: 36px;
+        margin-left: 45%;">View All</button></a>
+        </section>
+
+
+    </div>
+    <!-- CONTAINER CLOSED -->
+
+</div>
+</div>
+
+        
+{% endblock body %}
